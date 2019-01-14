@@ -7,9 +7,17 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Champagne';
+    src: url("../fonts/Champagne & Limousines Bold.ttf");
+    font-weight: 700;
+    font-style: normal;
+}
+
 $violet: #5b6ceb;
 $white: #fff;
 $dark: #555;
+$blue: #5363db;
 
 html,
 body {
@@ -26,6 +34,10 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.block {
+    display: block !important;
 }
 
 .btn {
@@ -56,6 +68,7 @@ section {
 }
 
 .nav {
+    display: flex;
     height: 100px;
     position: fixed;
     width: 100%;
@@ -79,6 +92,12 @@ section {
 
     &__logo {
         margin: 0 150px;
+        .logo {
+            font-family: 'Champagne';
+            font-size: 24px;
+            text-align: center;
+            text-transform: uppercase;
+        }
     }
 
     &__list {
@@ -99,15 +118,12 @@ section {
                 position: absolute;
                 width: 60%;
                 height: 1px;
-                background: $violet;
+                background: $blue;
                 bottom: 0;
                 transform: translateX(-50%);
                 left: 50%;
             }
         }
-    }
-    &__mob {
-        flex-direction: column;
     }
 
     &__icon {
@@ -143,15 +159,34 @@ section {
             transition: .25s ease-in-out;
         }
     }
-
     &--mobile {
-        top: 100px;
+        display: none;
         justify-content: space-between;
         padding: 0 30px;
         .nav__logo {
             margin: 0;
         }
-
+    }
+    &__mob {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 100px;
+        width: 100%;
+        background: $white;
+        padding: 0;
+        .nav__list {
+            width: 100%;
+        }
+        .nav__link {
+            width: 100%;
+            display: block;
+            text-align: center;
+            padding: 20px 0;
+        }
+        &--open {
+            display: none;
+        }
     }
 }
 
@@ -196,11 +231,38 @@ section {
 
 @media (max-width: 1200px) {}
 
-@media (max-width: 992px) {}
+@media (max-width: 992px) {
+    .nav {
+        &__logo {
+            margin: 0 100px;
+        }
+    }
+}
 
 
-@media (max-width: 768px) {}
+@media (max-width: 768px) {
+    .nav {
+        &__logo {
+            margin: 0 50px;
+        }
+    }
+}
 
-@media (max-width: 576px) {}
+@media (max-width: 650px) {
+    .nav {
+        display: none;
+    }
+    .nav--mobile {
+        display: flex;
+    }
+    .nav__mob--open {
+        display: block;
+    }
+}
+
+@media (max-width: 576px) {
+
+}
 
 @media (max-width: 360px) {}
+
