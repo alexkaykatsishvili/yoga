@@ -56,6 +56,7 @@ body {
     height: 390px;
     padding: 36px;
     margin: 40px;
+
     &__heading {
         color: $blue;
         font-size: 26px;
@@ -63,15 +64,18 @@ body {
         text-align: left;
         width: 100%;
     }
-    &__input, &__select {
+
+    &__input,
+    &__select {
         border-radius: 8px;
-        background-color:  #f2f2f2;
+        background-color: #f2f2f2;
         width: 100%;
         height: 50px;
         border: none;
         padding: 0 20px;
         margin: 9px 0;
     }
+
     .btn {
         align-self: flex-end;
     }
@@ -105,6 +109,15 @@ body {
     text-transform: uppercase;
 }
 
+.subtitle {
+    font-family: 'FreestyleScript';
+    color: #777;
+    font-size: 41px;
+    font-weight: 400;
+    line-height: 45px;
+    text-align: center;
+}
+
 .nav {
     display: flex;
     height: 100px;
@@ -124,18 +137,21 @@ body {
     &__right {
         padding: 0;
         margin: 0;
+        margin-right: 64px;
         width: 184px;
         justify-content: space-between;
     }
 
     &__logo {
         margin: 0 150px;
+        margin-top: 7px;
 
         .logo {
             font-family: 'Champagne';
             font-size: 24px;
             text-align: center;
             text-transform: uppercase;
+            letter-spacing: 0.08em;
         }
     }
 
@@ -281,13 +297,15 @@ body {
 .hero {
     background: $violet url("../img/background.jpg") 50% no-repeat;
     background-size: cover;
-    min-height: 600px;
+    min-height: 700px;
     padding: 100px 30px 0;
+
     &__heading {
         font-size: 48px;
         font-weight: 700;
         line-height: 72px;
         max-width: 486px;
+        text-transform: uppercase;
     }
 
     &__subheaing {
@@ -295,68 +313,163 @@ body {
         font-size: 40px;
         font-weight: 400;
         max-width: 268px;
+        line-height: 50px;
+        margin-top: 22px;
+    }
+
+    &__form {
+        margin-left: 206px;
+    }
+
+    &__info {
+        margin: 53px;
     }
 }
 
 .program {
+    padding: 112px 30px;
+
+    &__wrapper {
+        max-width: 1220px;
+        margin: 50px auto;
+    }
+
     .box {
         border-radius: 8px;
-        background-color:  $white;
+        background-color: $white;
         box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.1);
         width: 570px;
         height: 300px;
         -webkit-justify-content: space-between;
         justify-content: space-between;
-        margin: 20px;
+        margin: 10px;
+
         &__img {
             width: 270px;
             height: 300px;
+            max-width: 50%;
+
             &--health {
                 background: url("../img/yoga-program-health.jpg") 50% no-repeat;
                 background-size: cover;
             }
+
             &--weight {
                 background: url("../img/yoga-program-weight.jpg") 50% no-repeat;
                 background-size: cover;
             }
+
             &--children {
                 background: url("../img/yoga-program-children.jpg") 50% no-repeat;
                 background-size: cover;
             }
+
             &--elderly {
                 background: url("../img/yoga-program-elderly.jpg") 50% no-repeat;
                 background-size: cover;
             }
         }
+
         &__text {
-            padding: 30px;
+            padding: 34px 15px;
             height: 100%;
             width: 50%;
         }
+
         &__title {
-            color:  #777;
+            color: #777;
             font-size: 20px;
             font-weight: 700;
-            line-height: 45px;
+            line-height: 30px;
+            text-transform: uppercase;
         }
+
         &__description {
             line-height: 22px;
+            margin-top: 16px;
         }
+
         &__footer {
-            color:  #999;
+            color: #999;
             line-height: 22px;
+            margin-top: 30px;
+        }
+    }
+}
+
+.features {
+    background: $violet url("../img/benefits.jpg") 50% no-repeat;
+    background-size: cover;
+    position: relative;
+    min-height: 800px;
+    padding: 30px;
+    &__wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 70px 0;
+    }
+    &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color:  rgba(83, 99, 219, 0.8);
+        opacity: .7;
+        z-index: 1;
+    }
+    & > * {
+        z-index: 100;
+        position: inherit;
+    }
+    .box {
+        flex-direction: column;
+        padding: 20px 15px;
+        &__title {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 27px;
             text-transform: uppercase;
+            text-align: center;
+            max-width: 184px;
+            margin-top: 27px;
+            min-height: 52px;
+        }
+        &__text {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 27px;
+            max-width: 270px;
+            text-align: center;
+            margin-top: 5px;
+        }
+        &__img {
+            border-radius: 50%;
+            border: 2px solid $white;
+            width: 70px;
+            height: 70px;
         }
     }
 }
 
 
-@media (max-width: 1200px) {}
+@media (max-width: 1200px) {
+    .hero {
+        &__form {
+            margin-left: 0;
+        }
+    }
+}
 
 @media (max-width: 992px) {
     .nav {
         &__logo {
             margin: 0 100px;
+        }
+
+        &__right {
+            margin-right: 0;
         }
     }
 }
@@ -384,6 +497,45 @@ body {
     }
 }
 
-@media (max-width: 576px) {}
+@media (max-width: 576px) {
+    .program {
+        .box {
+            height: 100%;
+
+            &__img {
+                max-width: none;
+                width: 100%;
+                height: 200px;
+
+                &--health {
+                    background: url("../img/yoga-program-health.jpg") 50% 22% no-repeat;
+                    background-size: cover;
+                }
+
+                &--weight {
+                    background: url("../img/yoga-program-weight.jpg") 50% 0 no-repeat;
+                    background-size: cover;
+                }
+
+                &--children {
+                    background: url("../img/yoga-program-children.jpg") 50% 0 no-repeat;
+                    background-size: cover;
+                }
+
+                &--elderly {
+                    background: url("../img/yoga-program-elderly.jpg") 50% 20% no-repeat;
+                    background-size: cover;
+                }
+            }
+
+            &__text {
+                width: 100%;
+            }
+        }
+    }
+    .features {
+        background: $violet;
+    }
+}
 
 @media (max-width: 360px) {}
