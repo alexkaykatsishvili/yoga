@@ -32,5 +32,6 @@
         e.preventDefault();
     });
 
+lightGallery(document.getElementById('lightgallery'));
 
 })(jQuery);
