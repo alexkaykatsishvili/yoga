@@ -468,23 +468,36 @@ body {
 
 .prices {
     background: #fbfbfb;
+    padding: 50px 0;
+
+    &__wrapper {
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
 
     .box {
         justify-content: space-between;
         flex-direction: column;
         border-radius: 10px;
         width: 370px;
-        max-width: 100%;
+        max-width: 30%;
         height: 493px;
         box-shadow: 0px 9px 50px 0px rgba(0, 0, 0, 0.1);
         font-size: 18px;
         font-weight: 400;
         line-height: 24px;
+        flex-wrap: nowrap;
+
+        .btn {
+            margin-bottom: 52px;
+        }
 
         &__header {
             background: $violet;
             height: 150px;
-            border-radius: 10px;
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
             width: 100%;
             text-transform: uppercase;
             font-weight: 700;
@@ -492,7 +505,20 @@ body {
         }
 
         &__date,
-        &__time {}
+        &__time {
+            position: relative;
+
+            &:after {
+                content: "";
+                bottom: -20px;
+                left: 50%;
+                transform: translateX(-50%);
+                position: absolute;
+                background-color: #d7d7d7;
+                width: 99px;
+                height: 1px;
+            }
+        }
 
         &__price {
             align-items: baseline;
@@ -502,8 +528,16 @@ body {
                 content: "$";
                 font-size: 32px;
                 position: absolute;
-                top: -10px;
-                left: -40px;
+                top: 0px;
+                left: -36px;
+            }
+
+            &:after {
+                content: "/month";
+                font-size: 18px;
+                position: absolute;
+                bottom: -5px;
+                right: -85px;
             }
         }
 
@@ -518,7 +552,7 @@ body {
 
 }
 
-//*************************************
+//****** GALLERY STYLES ******
 
 
 .demo-gallery>ul {
@@ -591,65 +625,6 @@ body {
     background-color: rgba(91, 108, 235, 0.8);
 }
 
-.demo-gallery .justified-gallery>a>img {
-    -webkit-transition: -webkit-transform 0.15s ease 0s;
-    -moz-transition: -moz-transform 0.15s ease 0s;
-    -o-transition: -o-transform 0.15s ease 0s;
-    transition: transform 0.15s ease 0s;
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1);
-    height: 100%;
-    width: 100%;
-}
-
-.demo-gallery .justified-gallery>a:hover>img {
-    -webkit-transform: scale3d(1.1, 1.1, 1.1);
-    transform: scale3d(1.1, 1.1, 1.1);
-}
-
-.demo-gallery .justified-gallery>a:hover .demo-gallery-poster>img {
-    opacity: 1;
-}
-
-.demo-gallery .justified-gallery>a .demo-gallery-poster {
-    background-color: rgba(0, 0, 0, 0.1);
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    -webkit-transition: background-color 0.15s ease 0s;
-    -o-transition: background-color 0.15s ease 0s;
-    transition: background-color 0.15s ease 0s;
-}
-
-.demo-gallery .justified-gallery>a .demo-gallery-poster>img {
-    left: 50%;
-    margin-left: -10px;
-    margin-top: -10px;
-    opacity: 0;
-    position: absolute;
-    top: 50%;
-    -webkit-transition: opacity 0.3s ease 0s;
-    -o-transition: opacity 0.3s ease 0s;
-    transition: opacity 0.3s ease 0s;
-}
-
-.demo-gallery .justified-gallery>a:hover .demo-gallery-poster {
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.demo-gallery .video .demo-gallery-poster img {
-    height: 48px;
-    margin-left: -24px;
-    margin-top: -24px;
-    opacity: 0.8;
-    width: 48px;
-}
-
-.demo-gallery.dark>ul>li a {
-    border: 3px solid #04070a;
-}
 
 @media (max-width: 1200px) {
     .hero {
@@ -672,6 +647,22 @@ body {
 
     .demo-gallery>ul>li {
         width: 50%;
+    }
+
+    .prices {
+        background: #fbfbfb;
+        padding: 50px 0;
+
+        &__wrapper {
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            max-width: 100%;
+        }
     }
 }
 
