@@ -22,7 +22,7 @@
             <ul class="nav__left flex">
                 <li class="nav__list"><a class="nav__link" href="#">About us</a></li>
                 <li class="nav__list"><a class="nav__link" href="#">Reservation</a></li>
-                <li class="nav__list"><a class="nav__link" href="#">Gallery</a></li>
+                <li class="nav__list"><a class="nav__link" href="#gallery">Gallery</a></li>
             </ul>
             <div class="nav__logo">
                 <a class="nav__link nav__link--blue" href="#">
@@ -65,17 +65,21 @@
         <section id="hero" class="hero flex max-width white">
             <div class="flex">
                 <div class="hero__form">
-                    <form class="form flex" action="">
+                    <form id="form" class="form flex" action="">
                         <h3 class="form__heading">Trial Class</h3>
-                        <input class="form__input" type="text" placeholder="Enter your name">
-                        <input class="form__input" type="tel" placeholder="Enter your phone">
-                        <select class="form__select" name="class" id="">
+                        <input class="form__input" type="text" name="name" id="name" placeholder="Enter your name" v-validate="{alpha_spaces: true, required: true}" required>
+                        <span class="error">{{ errors.first('name') }}</span>
+                        <input class="form__input" type="tel" placeholder="Enter your phone" name="phone" id="phone" required v-validate="{required: true}" v-mask="'+38 (###) ### ## ##'">
+                        <span class="error">{{ errors.first('phone') }}</span>
+                        <select class="form__select" name="class" id="class" required v-validate="{required: true}">
+                            <option selected disabled>Choose your class</option>
                             <option value="Yoga for health">Yoga for health</option>
                             <option value="Yoga for lose weight">Yoga for lose weight</option>
                             <option value="Youga for children">Yoga for children</option>
                             <option value="Youga for elderly">Yoga for elderly</option>
                         </select>
-                        <input type="sumbit" class="btn form__input" value="Try it">
+                        <span class="error">{{ errors.first('class') }}</span>
+                        <input type="submit" class="btn form__input" value="Try it">
                     </form>
                 </div>
                 <div class="hero__info">
@@ -407,9 +411,19 @@
     <script src="js/main.js"></script>
     <!-- endbuild -->
     
-    <!-- <script>
-    lightGallery(document.getElementById('lightgallery'));
-    </script> -->
+    <script>
+            Vue.use(VeeValidate);
+            Vue.use(VueTheMask);
+
+            new Vue({
+                el: '#form',
+                model: {
+                    name: '',
+                    phone: '',
+                    class: ''
+                }
+            })
+            </script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 </body>
 

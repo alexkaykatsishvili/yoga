@@ -40,7 +40,7 @@ body {
   background-color: #fff;
   box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.15);
   width: 300px;
-  height: 390px;
+  min-height: 390px;
   padding: 36px;
   margin: 40px; }
   .form__heading {
@@ -56,7 +56,20 @@ body {
     height: 50px;
     border: none;
     padding: 0 20px;
-    margin: 9px 0; }
+    margin: 9px 0;
+    color: #888; }
+    .form__input::-webkit-input-placeholder, .form__select::-webkit-input-placeholder {
+      /* Chrome/Opera/Safari */
+      color: #888; }
+    .form__input::-moz-placeholder, .form__select::-moz-placeholder {
+      /* Firefox 19+ */
+      color: #888; }
+    .form__input:-ms-input-placeholder, .form__select:-ms-input-placeholder {
+      /* IE 10+ */
+      color: #888; }
+    .form__input:-moz-placeholder, .form__select:-moz-placeholder {
+      /* Firefox 18- */
+      color: #888; }
   .form .btn {
     align-self: flex-end; }
 
@@ -76,6 +89,12 @@ body {
 
 .btn--rounded {
   border-radius: 20px; }
+
+.error {
+  text-align: center;
+  color: red;
+  width: 100%;
+  font-size: 12px; }
 
 .heading {
   color: #5b6ceb;
