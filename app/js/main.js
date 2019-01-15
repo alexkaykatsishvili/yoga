@@ -1,4 +1,4 @@
-;(function($){
+;(function($) {
     "use strict";
 
     //On Scroll Functionality
@@ -10,7 +10,7 @@
     });
 
     //Mobile menu class toggle
-    $('.nav__icon').click(function(){
+    $('.nav__icon').click(function() {
         $(this).toggleClass('open');
         $('.nav__mob').toggleClass('nav__mob--open');
     });
@@ -32,6 +32,6 @@
         e.preventDefault();
     });
 
-lightGallery(document.getElementById('lightgallery'));
+    lightGallery(document.getElementById('lightgallery'));
 
 })(jQuery);
